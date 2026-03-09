@@ -1,0 +1,232 @@
+# Prisma Design System Component Rules
+
+## Core Principles
+
+This project is built exclusively with the **Prisma Design System**. All UI components, styling, and patterns must come from the Prisma design system packages.
+
+## Component Usage
+
+### Always Use Prisma Components
+
+1. **Never create custom UI components** when a Prisma component exists
+2. **Always import from Prisma packages** for:
+   - Buttons
+   - Forms (inputs, selects, checkboxes, radio buttons, etc.)
+   - Navigation (headers, footers, menus, tabs, breadcrumbs)
+   - Layout components (grid, containers, spacing)
+   - Typography (headings, paragraphs, text)
+   - Cards and containers
+   - Modals and dialogs
+   - Tooltips and popovers
+   - Tables and data display
+   - Loading states and spinners
+   - Icons
+   - Alerts and notifications
+   - Badges and tags
+   - Any other UI elements
+
+3. **Check Prisma documentation first** before building any component
+4. **Custom components are only allowed** for:
+   - Business logic specific to this prototype
+   - Complex compositions of Prisma components
+   - Components that genuinely don't exist in the design system
+
+### Component Discovery
+
+Before creating any component:
+1. Search the Prisma design system documentation
+2. Check available Prisma npm packages
+3. Review Prisma component examples
+4. Ask the user if unsure whether a component exists in Prisma
+
+## Styling Rules
+
+### Use Prisma Design Tokens
+
+1. **Never use hardcoded values** for:
+   - Colors (use Prisma color tokens)
+   - Spacing (use Prisma spacing scale)
+   - Typography (use Prisma font sizes, weights, line heights)
+   - Border radius (use Prisma radius tokens)
+   - Shadows (use Prisma shadow tokens)
+   - Breakpoints (use Prisma responsive breakpoints)
+
+2. **Import design tokens** from Prisma packages:
+   ```tsx
+   import { colors, spacing, typography } from '@prisma/design-tokens';
+   ```
+
+3. **Use Prisma's theming system** if available
+4. **Follow Prisma's CSS-in-JS or CSS module patterns** as defined in their documentation
+
+### CSS Guidelines
+
+1. **Prefer Prisma utility classes** over custom CSS
+2. **Use Prisma's layout system** (Grid, Flex, Stack, etc.)
+3. **Custom CSS only for**:
+   - Prototype-specific layouts
+   - Animations not provided by Prisma
+   - Edge cases not covered by the design system
+
+## Code Standards
+
+### Imports
+
+Always import Prisma components from the correct package:
+
+
+// ✅ Correct
+import { Button, Input, Card } from '@prisma/components';
+import { colors, spacing } from '@prisma/design-tokens';
+
+// ❌ Incorrect - don't create custom versions
+import { Button } from '@/components/Button';
+```
+
+### TypeScript
+
+1. Use Prisma's TypeScript types for component props
+2. Extend Prisma types when needed, don't recreate them
+3. Import types from Prisma packages:
+   ```tsx
+   import type { ButtonProps, InputProps } from '@prisma/components';
+   ```
+
+### Composition
+
+When building complex features:
+
+```tsx
+// ✅ Correct - compose Prisma components
+import { Card, Button, Stack, Text } from '@prisma/components';
+
+export function UserCard({ user }) {
+  return (
+    <Card>
+      <Stack spacing="md">
+        <Text variant="h3">{user.name}</Text>
+        <Text variant="body">{user.email}</Text>
+        <Button variant="primary">Edit</Button>
+      </Stack>
+    </Card>
+  );
+}
+
+// ❌ Incorrect - creating custom styled div
+export function UserCard({ user }) {
+  return (
+    <div className="custom-card">
+      <h3>{user.name}</h3>
+      <p>{user.email}</p>
+      <button>Edit</button>
+    </div>
+  );
+}
+```
+
+## Package Installation
+
+### Before Installing Any Package
+
+1. **Check if Prisma provides it first**
+   - UI libraries: Use Prisma components instead
+   - Icon libraries: Use Prisma icons
+   - CSS frameworks: Use Prisma styles
+
+2. **Only install external packages for**:
+   - Data fetching (React Query, SWR, etc.)
+   - State management (if not provided by Prisma)
+   - Utilities (lodash, date-fns, etc.)
+   - Backend/API functionality
+
+3. **Never install**:
+   - Alternative component libraries (Material-UI, Ant Design, Chakra, etc.)
+   - CSS frameworks (Tailwind, Bootstrap, etc.) unless Prisma is built on them
+   - UI libraries that duplicate Prisma functionality
+
+## File Structure
+
+### Component Organization
+
+```
+components/
+  FeatureName/
+    FeatureName.tsx       # Compose Prisma components here
+    styles.module.css     # Minimal custom styles only
+    types.ts              # Business logic types
+```
+
+### Example Component
+
+```tsx
+// components/ProductCard/ProductCard.tsx
+import { Card, Stack, Text, Button, Image } from '@prisma/components';
+import { spacing, colors } from '@prisma/design-tokens';
+import type { Product } from './types';
+
+interface ProductCardProps {
+  product: Product;
+  onAddToCart: (id: string) => void;
+}
+
+export function ProductCard({ product, onAddToCart }: ProductCardProps) {
+  return (
+    <Card elevation="md">
+      <Stack spacing={spacing.lg}>
+        <Image 
+          src={product.image} 
+          alt={product.name}
+          aspectRatio="16/9"
+        />
+        <Stack spacing={spacing.sm}>
+          <Text variant="h4">{product.name}</Text>
+          <Text variant="body" color={colors.textSecondary}>
+            {product.description}
+          </Text>
+          <Text variant="h5" color={colors.primary}>
+            ${product.price}
+          </Text>
+        </Stack>
+        <Button 
+          variant="primary" 
+          onClick={() => onAddToCart(product.id)}
+          fullWidth
+        >
+          Add to Cart
+        </Button>
+      </Stack>
+    </Card>
+  );
+}
+```
+
+## Validation Checklist
+
+Before submitting any work, verify:
+
+- [ ] All UI elements use Prisma components
+- [ ] No custom buttons, inputs, or basic UI components
+- [ ] Design tokens used for all styling values
+- [ ] Prisma's layout system used for positioning
+- [ ] TypeScript types imported from Prisma packages
+- [ ] No conflicting UI libraries installed
+- [ ] Component names clearly describe business logic, not UI primitives
+- [ ] Custom styles are minimal and only for prototype-specific needs
+
+## When in Doubt
+
+1. **Ask the user** which Prisma component to use
+2. **Reference Prisma documentation** before building
+3. **Prefer composition** over creation
+4. **Think "assemble" not "build"** - we're assembling Prisma components, not building a design system
+
+## Exceptions
+
+Exceptions to these rules require explicit approval. Document any exceptions with:
+- Reason for exception
+- Why Prisma component couldn't be used
+- Link to discussion/decision
+
+---
+
+**Remember**: This is a Prisma design system prototype. The goal is to showcase and use Prisma components, not to create custom UI. Every custom component is a missed opportunity to use the design system.

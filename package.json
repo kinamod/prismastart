@@ -1,0 +1,41 @@
+{
+  "name": "barebuilder",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@builder.io/react": "^8.2.7",
+    "@builder.io/sdk": "^6.1.2",
+    "@edreamsodigeo/prisma-design-system": "27.5.0",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
+    "date-fns": "^2.30.0",
+    "intersection-observer": "^0.12.2",
+    "next": "^16.0.8",
+    "prop-types": "^15.8.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "smoothscroll-polyfill": "^0.4.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.0.8",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

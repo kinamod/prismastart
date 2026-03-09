@@ -131,48 +131,24 @@ export default function Home() {
           <Box
             sx={{
               marginBottom: ['48px', '64px'],
+              textAlign: 'center',
             }}
           >
-            <Flex alignItems="center" sx={{ gap: '12px', marginBottom: '32px', justifyContent: 'center' }}>
+            <Flex alignItems="center" sx={{ gap: '12px', marginBottom: '24px', justifyContent: 'center' }}>
               <Glyph category="Content" name="Document" size="medium" color="primary.50" />
               <Heading type={2} sx={{ margin: 0 }}>
                 Sample Pages
               </Heading>
             </Flex>
 
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: ['1fr', 'repeat(auto-fit, minmax(300px, 1fr))'],
-                gap: '24px',
-                maxWidth: '800px',
-                margin: '0 auto',
-              }}
-            >
-              <Link href="/destinations" style={{ textDecoration: 'none' }}>
-                <Card
-                  sx={{
-                    padding: '32px',
-                    transition: 'transform 0.2s, box-shadow 0.2s',
-                    cursor: 'pointer',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: '0 12px 24px rgba(0, 0, 0, 0.15)',
-                    },
-                  }}
-                >
-                  <Flex alignItems="center" sx={{ gap: '12px', marginBottom: '12px' }}>
-                    <Glyph category="TravelProducts" name="Flight" size="medium" color="primary.50" />
-                    <Heading type={3} sx={{ margin: 0 }}>
-                      Explore Destinations
-                    </Heading>
-                  </Flex>
-                  <Body sx={{ margin: 0, color: '#64748b' }}>
-                    Discover beautiful interactive flip cards showcasing travel destinations built with Prisma components.
-                  </Body>
-                </Card>
-              </Link>
-            </Box>
+            <Link href="/destinations" style={{ textDecoration: 'none' }}>
+              <Button variant="primary">
+                <Flex alignItems="center" sx={{ gap: '8px' }}>
+                  <Glyph category="TravelProducts" name="Flight" size="small" />
+                  Explore Destinations
+                </Flex>
+              </Button>
+            </Link>
           </Box>
 
           {/* Features Grid */}

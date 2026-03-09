@@ -2,8 +2,7 @@
 
 import {
   Button,
-  PrismaThemeProvider,
-  themes,
+  PrismaProvider,
   Box,
   Flex,
   Card,
@@ -16,6 +15,7 @@ import {
 } from '@edreamsodigeo/prisma-design-system';
 import Link from 'next/link';
 import { useState } from 'react';
+import { enUS } from 'date-fns/locale';
 
 export default function Payment() {
   const [cardNumber, setCardNumber] = useState('');
@@ -30,7 +30,12 @@ export default function Payment() {
   };
 
   return (
-    <PrismaThemeProvider theme={themes.COBALT_ED}>
+    <PrismaProvider
+      brand="ED"
+      version="cobalt"
+      currencyLocale="en"
+      dateFnsLocale={enUS}
+    >
       <Box
         sx={{
           minHeight: '100vh',
@@ -199,6 +204,6 @@ export default function Payment() {
           </Flex>
         </Box>
       </Box>
-    </PrismaThemeProvider>
+    </PrismaProvider>
   );
 }

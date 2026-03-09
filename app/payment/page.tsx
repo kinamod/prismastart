@@ -23,6 +23,8 @@ export default function Payment() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Payment processing logic would go here
@@ -86,9 +88,11 @@ export default function Payment() {
                       type="text"
                       value={cardNumber}
                       onChange={(e) => setCardNumber(e.target.value)}
+                      onFocus={() => setFocusedField('cardNumber')}
+                      onBlur={() => setFocusedField(null)}
                       maxLength={19}
                       required
-                      label={<InnerLabel isEmpty={!cardNumber} stateType="default">Card Number</InnerLabel>}
+                      label={<InnerLabel isEmpty={!cardNumber && focusedField !== 'cardNumber'} stateType="default">Card Number</InnerLabel>}
                     />
                   </Field>
                 </Box>
@@ -101,8 +105,10 @@ export default function Payment() {
                       type="text"
                       value={cardHolder}
                       onChange={(e) => setCardHolder(e.target.value)}
+                      onFocus={() => setFocusedField('cardHolder')}
+                      onBlur={() => setFocusedField(null)}
                       required
-                      label={<InnerLabel isEmpty={!cardHolder} stateType="default">Card Holder Name</InnerLabel>}
+                      label={<InnerLabel isEmpty={!cardHolder && focusedField !== 'cardHolder'} stateType="default">Card Holder Name</InnerLabel>}
                     />
                   </Field>
                 </Box>
@@ -116,9 +122,11 @@ export default function Payment() {
                         type="text"
                         value={expiryDate}
                         onChange={(e) => setExpiryDate(e.target.value)}
+                        onFocus={() => setFocusedField('expiryDate')}
+                        onBlur={() => setFocusedField(null)}
                         maxLength={5}
                         required
-                        label={<InnerLabel isEmpty={!expiryDate} stateType="default">Expiry Date</InnerLabel>}
+                        label={<InnerLabel isEmpty={!expiryDate && focusedField !== 'expiryDate'} stateType="default">Expiry Date</InnerLabel>}
                       />
                     </Field>
                   </Box>
@@ -130,9 +138,11 @@ export default function Payment() {
                         type="text"
                         value={cvv}
                         onChange={(e) => setCvv(e.target.value)}
+                        onFocus={() => setFocusedField('cvv')}
+                        onBlur={() => setFocusedField(null)}
                         maxLength={4}
                         required
-                        label={<InnerLabel isEmpty={!cvv} stateType="default">CVV</InnerLabel>}
+                        label={<InnerLabel isEmpty={!cvv && focusedField !== 'cvv'} stateType="default">CVV</InnerLabel>}
                       />
                     </Field>
                   </Box>

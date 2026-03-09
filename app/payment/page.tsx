@@ -11,7 +11,7 @@ import {
   Body,
   Glyph,
   Input,
-  Label,
+  InnerLabel,
 } from '@edreamsodigeo/prisma-design-system';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -88,15 +88,12 @@ export default function Payment() {
               <Flex flexDirection="column" sx={{ gap: '24px' }}>
                 {/* Card Number */}
                 <Box>
-                  <Label htmlFor="cardNumber">
-                    <Body size="small" sx={{ marginBottom: '8px', fontWeight: 600 }}>
-                      Card Number
-                    </Body>
-                  </Label>
+                  <InnerLabel htmlFor="cardNumber" isEmpty={!cardNumber}>
+                    Card Number
+                  </InnerLabel>
                   <Input
                     id="cardNumber"
                     type="text"
-                    placeholder="1234 5678 9012 3456"
                     value={cardNumber}
                     onChange={(e) => setCardNumber(e.target.value)}
                     maxLength={19}
@@ -106,15 +103,12 @@ export default function Payment() {
 
                 {/* Card Holder */}
                 <Box>
-                  <Label htmlFor="cardHolder">
-                    <Body size="small" sx={{ marginBottom: '8px', fontWeight: 600 }}>
-                      Card Holder Name
-                    </Body>
-                  </Label>
+                  <InnerLabel htmlFor="cardHolder" isEmpty={!cardHolder}>
+                    Card Holder Name
+                  </InnerLabel>
                   <Input
                     id="cardHolder"
                     type="text"
-                    placeholder="John Doe"
                     value={cardHolder}
                     onChange={(e) => setCardHolder(e.target.value)}
                     required
@@ -124,15 +118,12 @@ export default function Payment() {
                 {/* Expiry Date and CVV */}
                 <Flex sx={{ gap: '16px' }}>
                   <Box sx={{ flex: 1 }}>
-                    <Label htmlFor="expiryDate">
-                      <Body size="small" sx={{ marginBottom: '8px', fontWeight: 600 }}>
-                        Expiry Date
-                      </Body>
-                    </Label>
+                    <InnerLabel htmlFor="expiryDate" isEmpty={!expiryDate}>
+                      Expiry Date
+                    </InnerLabel>
                     <Input
                       id="expiryDate"
                       type="text"
-                      placeholder="MM/YY"
                       value={expiryDate}
                       onChange={(e) => setExpiryDate(e.target.value)}
                       maxLength={5}
@@ -141,15 +132,12 @@ export default function Payment() {
                   </Box>
 
                   <Box sx={{ flex: 1 }}>
-                    <Label htmlFor="cvv">
-                      <Body size="small" sx={{ marginBottom: '8px', fontWeight: 600 }}>
-                        CVV
-                      </Body>
-                    </Label>
+                    <InnerLabel htmlFor="cvv" isEmpty={!cvv}>
+                      CVV
+                    </InnerLabel>
                     <Input
                       id="cvv"
                       type="text"
-                      placeholder="123"
                       value={cvv}
                       onChange={(e) => setCvv(e.target.value)}
                       maxLength={4}

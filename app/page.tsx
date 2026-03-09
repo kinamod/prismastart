@@ -127,30 +127,6 @@ export default function Home() {
             </Flex>
           </Flex>
 
-          {/* Sample Pages Section */}
-          <Box
-            sx={{
-              marginBottom: ['48px', '64px'],
-              textAlign: 'center',
-            }}
-          >
-            <Flex alignItems="center" sx={{ gap: '12px', marginBottom: '24px', justifyContent: 'center' }}>
-              <Glyph category="Content" name="Document" size="medium" color="primary.50" />
-              <Heading type={2} sx={{ margin: 0 }}>
-                Sample Pages
-              </Heading>
-            </Flex>
-
-            <Link href="/destinations" style={{ textDecoration: 'none' }}>
-              <Button variant="primary">
-                <Flex alignItems="center" sx={{ gap: '8px' }}>
-                  <Glyph category="TravelProducts" name="Flight" size="small" />
-                  Explore Destinations
-                </Flex>
-              </Button>
-            </Link>
-          </Box>
-
           {/* Features Grid */}
           <Box
             sx={{

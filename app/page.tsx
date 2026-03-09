@@ -126,7 +126,7 @@ export default function Home() {
                 marginTop: '16px',
               }}
             >
-              <Button variant="secondary" onClick={() => scrollToSection('get-started')}>
+              <Button type="positive" onClick={() => scrollToSection('get-started')}>
                 Get Started
               </Button>
               <Button variant="secondary" onClick={() => scrollToSection('learn-more')}>

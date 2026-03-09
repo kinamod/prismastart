@@ -190,6 +190,53 @@ export default function Home() {
             </Card>
           </Box>
 
+          {/* Sample Pages Section */}
+          <Box
+            sx={{
+              marginTop: ['64px', '96px'],
+              padding: ['32px 24px', '48px 24px'],
+            }}
+          >
+            <Flex alignItems="center" sx={{ gap: '12px', marginBottom: '32px' }}>
+              <Glyph category="Content" name="Document" size="medium" color="primary.50" />
+              <Heading type={2} sx={{ margin: 0 }}>
+                Sample Pages
+              </Heading>
+            </Flex>
+
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: ['1fr', 'repeat(auto-fit, minmax(300px, 1fr))'],
+                gap: '24px',
+              }}
+            >
+              <Link href="/destinations" style={{ textDecoration: 'none' }}>
+                <Card
+                  sx={{
+                    padding: '32px',
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: '0 12px 24px rgba(0, 0, 0, 0.15)',
+                    },
+                  }}
+                >
+                  <Flex alignItems="center" sx={{ gap: '12px', marginBottom: '12px' }}>
+                    <Glyph category="TravelProducts" name="Flight" size="medium" color="primary.50" />
+                    <Heading type={3} sx={{ margin: 0 }}>
+                      Explore Destinations
+                    </Heading>
+                  </Flex>
+                  <Body sx={{ margin: 0, color: '#64748b' }}>
+                    Discover beautiful interactive flip cards showcasing travel destinations built with Prisma components.
+                  </Body>
+                </Card>
+              </Link>
+            </Box>
+          </Box>
+
           {/* Get Started Section */}
           <Box
             id="get-started"

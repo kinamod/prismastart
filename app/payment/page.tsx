@@ -26,7 +26,7 @@ export default function Payment() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Payment processing logic would go here
-    alert('Payment submitted! (This is a demo)');
+    alert("You've paid");
   };
 
   return (
@@ -108,37 +108,35 @@ export default function Payment() {
                 </Box>
 
                 {/* Expiry Date and CVV */}
-                <Box mb={4}>
-                  <Flex>
-                    <Box flex={1} mr={2}>
-                      <Field stateType="default">
-                        <Input
-                          id="expiryDate"
-                          type="text"
-                          value={expiryDate}
-                          onChange={(e) => setExpiryDate(e.target.value)}
-                          maxLength={5}
-                          required
-                          label={<InnerLabel isEmpty={!expiryDate} stateType="default">Expiry Date</InnerLabel>}
-                        />
-                      </Field>
-                    </Box>
+                <Flex mb={4}>
+                  <Box flex={1} mr={2}>
+                    <Field stateType="default">
+                      <Input
+                        id="expiryDate"
+                        type="text"
+                        value={expiryDate}
+                        onChange={(e) => setExpiryDate(e.target.value)}
+                        maxLength={5}
+                        required
+                        label={<InnerLabel isEmpty={!expiryDate} stateType="default">Expiry Date</InnerLabel>}
+                      />
+                    </Field>
+                  </Box>
 
-                    <Box flex={1} ml={2}>
-                      <Field stateType="default">
-                        <Input
-                          id="cvv"
-                          type="text"
-                          value={cvv}
-                          onChange={(e) => setCvv(e.target.value)}
-                          maxLength={4}
-                          required
-                          label={<InnerLabel isEmpty={!cvv} stateType="default">CVV</InnerLabel>}
-                        />
-                      </Field>
-                    </Box>
-                  </Flex>
-                </Box>
+                  <Box flex={1} ml={2}>
+                    <Field stateType="default">
+                      <Input
+                        id="cvv"
+                        type="text"
+                        value={cvv}
+                        onChange={(e) => setCvv(e.target.value)}
+                        maxLength={4}
+                        required
+                        label={<InnerLabel isEmpty={!cvv} stateType="default">CVV</InnerLabel>}
+                      />
+                    </Field>
+                  </Box>
+                </Flex>
 
                 {/* Order Summary */}
                 <Box mt={3} p={3} backgroundColor="neutral.20" borderRadius="8px">
@@ -164,8 +162,8 @@ export default function Payment() {
                 </Box>
 
                 {/* Submit Button */}
-                <Box mt={2}>
-                  <Button variant="primary" type="submit">
+                <Box mt={4}>
+                  <Button variant="primary" type="submit" width="100%">
                     <Flex alignItems="center" justifyContent="center">
                       <Glyph category="UIActions" name="Check" size="small" />
                       <Box ml={2}>Complete Payment</Box>

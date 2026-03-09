@@ -36,22 +36,26 @@ export default function Payment() {
       currencyLocale="en"
       dateFnsLocale={enUS}
     >
-      <Box>
+      <Box minHeight="100vh" backgroundColor="neutral.10">
         {/* Header */}
-        <Box as="header">
-          <Flex alignItems="center" justifyContent="center">
-            <Glyph category="Finances" name="Cards" size="large" />
-            <Heading type={1}>
-              Payment
-            </Heading>
+        <Box as="header" backgroundColor="primary.50" py={5} px={4}>
+          <Flex alignItems="center" justifyContent="center" mb={2}>
+            <Glyph category="Finances" name="Cards" size="large" color="white" />
+            <Box ml={2}>
+              <Heading type={1} color="white">
+                Payment
+              </Heading>
+            </Box>
           </Flex>
-          <Body size="large">
-            Secure payment powered by Prisma Design System
-          </Body>
+          <Flex justifyContent="center">
+            <Body size="large" color="white">
+              Secure payment powered by Prisma Design System
+            </Body>
+          </Flex>
         </Box>
 
         {/* Main Content */}
-        <Box as="main">
+        <Box as="main" maxWidth="600px" mx="auto" py={5} px={4}>
           {/* Back Button */}
           <Box mb={4}>
             <Link href="/" style={{ textDecoration: 'none' }}>
@@ -137,24 +141,24 @@ export default function Payment() {
                 </Box>
 
                 {/* Order Summary */}
-                <Box mt={3} p={3}>
-                  <Box mb={2}>
+                <Box mt={3} p={3} backgroundColor="neutral.20" borderRadius="8px">
+                  <Box mb={3}>
                     <Heading type={4}>
                       Order Summary
                     </Heading>
                   </Box>
-                  <Flex justifyContent="space-between">
+                  <Flex justifyContent="space-between" mb={2}>
                     <Body>Subtotal</Body>
                     <Body>$299.00</Body>
                   </Flex>
-                  <Flex justifyContent="space-between">
+                  <Flex justifyContent="space-between" mb={2}>
                     <Body>Tax</Body>
                     <Body>$29.90</Body>
                   </Flex>
-                  <Box mt={2} pt={2}>
+                  <Box mt={3} pt={3} borderTop="1px solid" borderColor="neutral.40">
                     <Flex justifyContent="space-between">
-                      <Body>Total</Body>
-                      <Body>$328.90</Body>
+                      <Heading type={4}>Total</Heading>
+                      <Heading type={3}>$328.90</Heading>
                     </Flex>
                   </Box>
                 </Box>
@@ -173,11 +177,11 @@ export default function Payment() {
           </Card>
 
           {/* Security Note */}
-          <Box mt={4}>
+          <Box mt={4} py={3}>
             <Flex alignItems="center" justifyContent="center">
-              <Glyph category="Alerts" name="WarningShield" size="small" />
+              <Glyph category="Alerts" name="WarningShield" size="small" color="neutral.70" />
               <Box ml={2}>
-                <Body size="small">Your payment information is secure and encrypted</Body>
+                <Body size="small" color="neutral.70">Your payment information is secure and encrypted</Body>
               </Box>
             </Flex>
           </Box>

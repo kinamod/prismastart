@@ -12,6 +12,7 @@ import {
   Glyph,
   Input,
   InnerLabel,
+  Field,
 } from '@edreamsodigeo/prisma-design-system';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -87,10 +88,7 @@ export default function Payment() {
             <form onSubmit={handleSubmit}>
               <Flex flexDirection="column" sx={{ gap: '24px' }}>
                 {/* Card Number */}
-                <Box>
-                  <InnerLabel htmlFor="cardNumber" isEmpty={!cardNumber}>
-                    Card Number
-                  </InnerLabel>
+                <Field stateType="default">
                   <Input
                     id="cardNumber"
                     type="text"
@@ -98,51 +96,50 @@ export default function Payment() {
                     onChange={(e) => setCardNumber(e.target.value)}
                     maxLength={19}
                     required
+                    label={<InnerLabel isEmpty={!cardNumber} stateType="default">Card Number</InnerLabel>}
                   />
-                </Box>
+                </Field>
 
                 {/* Card Holder */}
-                <Box>
-                  <InnerLabel htmlFor="cardHolder" isEmpty={!cardHolder}>
-                    Card Holder Name
-                  </InnerLabel>
+                <Field stateType="default">
                   <Input
                     id="cardHolder"
                     type="text"
                     value={cardHolder}
                     onChange={(e) => setCardHolder(e.target.value)}
                     required
+                    label={<InnerLabel isEmpty={!cardHolder} stateType="default">Card Holder Name</InnerLabel>}
                   />
-                </Box>
+                </Field>
 
                 {/* Expiry Date and CVV */}
                 <Flex sx={{ gap: '16px' }}>
                   <Box sx={{ flex: 1 }}>
-                    <InnerLabel htmlFor="expiryDate" isEmpty={!expiryDate}>
-                      Expiry Date
-                    </InnerLabel>
-                    <Input
-                      id="expiryDate"
-                      type="text"
-                      value={expiryDate}
-                      onChange={(e) => setExpiryDate(e.target.value)}
-                      maxLength={5}
-                      required
-                    />
+                    <Field stateType="default">
+                      <Input
+                        id="expiryDate"
+                        type="text"
+                        value={expiryDate}
+                        onChange={(e) => setExpiryDate(e.target.value)}
+                        maxLength={5}
+                        required
+                        label={<InnerLabel isEmpty={!expiryDate} stateType="default">Expiry Date</InnerLabel>}
+                      />
+                    </Field>
                   </Box>
 
                   <Box sx={{ flex: 1 }}>
-                    <InnerLabel htmlFor="cvv" isEmpty={!cvv}>
-                      CVV
-                    </InnerLabel>
-                    <Input
-                      id="cvv"
-                      type="text"
-                      value={cvv}
-                      onChange={(e) => setCvv(e.target.value)}
-                      maxLength={4}
-                      required
-                    />
+                    <Field stateType="default">
+                      <Input
+                        id="cvv"
+                        type="text"
+                        value={cvv}
+                        onChange={(e) => setCvv(e.target.value)}
+                        maxLength={4}
+                        required
+                        label={<InnerLabel isEmpty={!cvv} stateType="default">CVV</InnerLabel>}
+                      />
+                    </Field>
                   </Box>
                 </Flex>
 

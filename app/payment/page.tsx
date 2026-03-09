@@ -47,7 +47,7 @@ export default function Payment() {
           }}
         >
           <Flex alignItems="center" justifyContent="center" sx={{ gap: '12px', marginBottom: '12px' }}>
-            <Glyph category="Payment" name="CreditCard" size="large" />
+            <Glyph category="Finances" name="Cards" size="large" />
             <Heading type={1} sx={{ margin: 0, color: 'white' }}>
               Payment
             </Heading>
@@ -209,7 +209,7 @@ export default function Payment() {
             justifyContent="center"
             sx={{ gap: '8px', marginTop: '24px', color: '#64748b' }}
           >
-            <Glyph category="Security" name="Lock" size="small" color="#64748b" />
+            <Glyph category="Alerts" name="WarningShield" size="small" color="#64748b" />
             <Body size="small">Your payment information is secure and encrypted</Body>
           </Flex>
         </Box>

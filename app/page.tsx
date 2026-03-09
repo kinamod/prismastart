@@ -112,7 +112,7 @@ export default function Home() {
               <Link href="/payment" style={{ textDecoration: 'none' }}>
                 <Button variant="primary">
                   <Flex alignItems="center" sx={{ gap: '8px' }}>
-                    <Glyph category="Payment" name="CreditCard" size="small" />
+                    <Glyph category="Finances" name="Cards" size="small" />
                     Payment
                   </Flex>
                 </Button>

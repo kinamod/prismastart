@@ -301,11 +301,14 @@ export default function Home() {
               </Box>
 
               <Box>
-                <Heading type={4} sx={{ margin: '0 0 12px 0' }}>
-                  📤 Share Your Preview
-                </Heading>
+                <Flex alignItems="center" sx={{ gap: '8px', marginBottom: '12px' }}>
+                  <Glyph category="UIActions" name="Share" size="small" color="primary.50" />
+                  <Heading type={4} sx={{ margin: 0 }}>
+                    Share Your Preview
+                  </Heading>
+                </Flex>
                 <Body sx={{ marginBottom: '12px' }}>
-                  Want to share your work? Click the <strong>Share button</strong> at the top right of your screen <span style={{ fontSize: '24px' }}>↗️</span>
+                  Want to share your work? Click the <strong>Share button</strong> at the top right of your screen
                 </Body>
                 <Body size="small" sx={{ color: '#64748b' }}>
                   This generates a preview link that anyone can view—perfect for getting feedback from your team or stakeholders!
@@ -313,9 +316,12 @@ export default function Home() {
               </Box>
 
               <Box>
-                <Heading type={4} sx={{ margin: '0 0 12px 0' }}>
-                  🎯 This Prisma Starter
-                </Heading>
+                <Flex alignItems="center" sx={{ gap: '8px', marginBottom: '12px' }}>
+                  <Glyph category="Content" name="Bookmark" size="small" color="primary.50" />
+                  <Heading type={4} sx={{ margin: 0 }}>
+                    This Prisma Starter
+                  </Heading>
+                </Flex>
                 <Body>
                   This repository is pre-configured with the Prisma Design System. All UI components, typography, colors, and spacing automatically follow Prisma's design tokens. Just focus on building features—the design consistency is handled for you.
                 </Body>
